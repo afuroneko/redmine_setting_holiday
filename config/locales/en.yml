@@ -1,0 +1,6 @@
+en:
+  label_setting_holiday: Setting Holidays
+  label_holiday_date: "%B %d"
+  label_holiday_new: "Add template"
+  no_issue_holidays: "Holiday setting is not defined."
+

@@ -1,0 +1,10 @@
+<%= stylesheet_link_tag 'setting_holidays', :plugin => 'redmine_setting_holiday' %>
+<h3><%= l(:label_setting_holiday) %></h3>
+
+<ul>
+<li><%= link_to l(:label_calendar), {:controller => :setting_holidays, :action => :index, :project_id => @project}, :class => 'icon icon-calendar' %></li>
+<li><%= link_to l(:button_list), {:controller => :setting_holidays, :action => :list, :project_id => @project}, :class => 'icon icon-list' %></li>
+<li><%= link_to l(:label_holiday_new), {:controller => 'setting_holidays', :action => 'new'}, :class => 'icon icon-add' %></li>
+</ul>
+
+<%= render_sidebar_queries %>

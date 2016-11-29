@@ -1,0 +1,22 @@
+<div class="box tabular">
+  <%= labelled_fields_for :holiday, @holiday do |f| %>
+  <p id="name_area">
+    <%= f.text_field(:title, :size => 80, :maxlength => 255, :label => l(:field_name)) %>
+  </p>
+  <p id="description_area">
+    <%= f.label_for_field :description %>
+    <%= content_tag 'span', :id => "holiday_description_and_toolbar" do %>
+      <%= f.text_area :description,
+                     :cols => 60,
+                     :rows => (@holiday.description.blank? ? 10 : [[10, @holiday.description.length / 50].max, 100].min),
+                     :accesskey => accesskey(:edit),
+                     :class => 'wiki-edit',
+                     :no_label => true %>
+    <% end %>
+  </p>
+  <p id="date_area">
+    <%= f.text_field(:date, :size => 10, :required => true, :label => l(:field_spent_on)) %>
+    <%= calendar_for('holiday_date') %>
+  </p>
+  <% end %>
+</div>

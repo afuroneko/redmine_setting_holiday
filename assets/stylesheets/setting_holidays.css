@@ -1,0 +1,32 @@
+.icon-list { background-image: url(../images/list.png); }
+.icon-calendar { background-image: url(../images/calendar.png); }
+
+.gantt_hdr.sat {background-color:#d6d7ff;}
+.gantt_hdr.holi {background-color:#ffd7d8;}
+
+table.cal td.today {background:#ffffdd; border:2px solid #E80000;}
+table.cal td.even.sat {background:#bbbbff;}
+table.cal td.even.sat p.day-num {color:#6666ff; font-weight: bold;}
+table.cal td.even.holi {background:#ffbbbb;}
+table.cal td.even.holi p.day-num {color:#ff6666; font-weight: bold;}
+table.cal td.odd.sat {background-color:#f6f7ff;}
+table.cal td.odd.sat p.day-num {color: #bbbbff; font-weight: bold;}
+table.cal td.odd.holi {background-color:#fff7f8;}
+table.cal td.odd.holi p.day-num {color: #ffbbbb; font-weight: bold;}
+
+table.smcal {border-collapse: collapse; width: 100%; margin: 0px 0 6px 0;border: 1px solid #d7d7d7;}
+table.smcal thead th {width: 14%; background-color:#EEEEEE; padding: 4px; }
+table.smcal thead th.week-number {width: auto;}
+table.smcal td {border: 1px solid #d7d7d7; vertical-align: top; font-size: 0.9em; width: 40px; height: 40px;}
+table.smcal td.week-number {background-color:#EEEEEE; padding: 4px; border:none; font-size: 1em;}
+table.smcal td p.day-num {font-size: 1.1em; text-align:right;}
+table.smcal td.odd p.day-num {color: #bbb;}
+table.smcal td.even.sat {background:#bbbbff;}
+table.smcal td.even.sat p.day-num {color:#6666ff; font-weight: bold;}
+table.smcal td.even.holi {background:#ffbbbb;}
+table.smcal td.even.holi p.day-num {color:#ff6666; font-weight: bold;}
+table.smcal td.odd.sat {background-color:#f6f7ff;}
+table.smcal td.odd.sat p.day-num {color: #bbbbff; font-weight: bold;}
+table.smcal td.odd.holi {background-color:#fff7f8;}
+table.smcal td.odd.holi p.day-num {color: #ffbbbb; font-weight: bold;}
+table.smcal td a {display:block; width:100%; height:100%; margin-top:-1.1em}

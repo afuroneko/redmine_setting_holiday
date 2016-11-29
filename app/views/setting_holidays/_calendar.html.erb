@@ -1,0 +1,24 @@
+<table class="smcal">
+<thead>
+<tr>
+<% 7.times do |i| %><th scope="col"><%= abbr_day_name( (calendar.first_wday+i)%7 ) %></th><% end %>
+</tr>
+</thead>
+<tbody>
+<tr>
+<%= stylesheet_link_tag 'setting_holidays', :plugin => 'redmine_setting_holiday' %>
+<% now_year = calendar.startdt.year
+   holidays = get_holidays(project.id, now_year) %>
+<% day = calendar.startdt
+while day <= calendar.enddt %>
+  <% holidays = get_holidays(project.id, (now_year = now_year + 1)) if day.year > now_year %>
+  <td class="<%= day.month==calendar.month ? 'even' : 'odd' %><%= get_holiday_class( day, holidays ) %>">
+  <p class="day-num"><%= day.day %></p>
+  <%= link_to "", {:action => check_holiday( day, holidays )? 'edit' : 'new', :project_id => @project, :day => day } %>
+  </td>
+  <%= '</tr><tr>'.html_safe if day.cwday==calendar.last_wday and day!=calendar.enddt %>
+<% day = day + 1
+end %>
+</tr>
+</tbody>
+</table>

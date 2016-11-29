@@ -1,0 +1,6 @@
+ja:
+  label_setting_holiday: 休日設定
+  label_holiday_date: "%-m月%-d日"
+  label_holiday_new: "新規作成"
+  no_issue_holidays: "休日設定は定義されていません。"
+

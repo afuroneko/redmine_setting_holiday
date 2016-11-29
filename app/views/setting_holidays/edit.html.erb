@@ -1,0 +1,15 @@
+<%= stylesheet_link_tag 'setting_holidays', :plugin => 'redmine_setting_holiday' %>
+<div class="contextual">
+<%= link_to_if_authorized l(:button_delete), {:controller => 'setting_holidays', :action => 'destroy', :id => @holiday.id, :project_id => @project}, 
+                          :data => {:confirm => l(:text_are_you_sure)}, :method => :post, :class => 'icon icon-del' %>
+<%= link_to(l(:label_calendar), {:controller => :setting_holidays, :action => :index, :project_id => @project}, :class => 'icon icon-calendar') %>  
+<%= link_to(l(:button_list), {:controller => :setting_holidays, :action => :list, :project_id => @project}, :class => 'icon icon-list') %>  
+</div>
+
+<h2> <%=h l :label_setting_holiday %> / <%=h l :button_update %> </h2>
+
+<%= labelled_form_for @holiday, :url => { :controller => 'setting_holidays', :action => 'update', :project_id => @project, :id => @holiday.id },
+                                :html => { :id => 'setting_holiday-form', :multipart => true } do |f| %>
+  <%= render :partial => 'setting_holidays/form', :locals => {:project => @project, :holiday => @holiday} %>
+  <%= submit_tag l(:button_submit) %>
+<% end %>

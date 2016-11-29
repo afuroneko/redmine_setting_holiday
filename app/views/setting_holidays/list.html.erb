@@ -1,0 +1,41 @@
+<h2> <%=h l :label_setting_holiday %> #list </h2>
+
+<%= error_messages_for 'query' %>
+<% if @query.valid? %>
+<p style="float:right;">
+  <%= link_to_prev_year(@year) %> | <%= link_to_next_year(@year) %>
+</p>
+<h2><%= @year %></h2>
+</br>
+
+<% if @holidays.blank? %>
+  <div class="holiday_box">
+    <h2><%= l(:no_issue_holidays) %></h2>
+  </div>
+<% else %>
+  <div class="holiday_box">
+    <table class="list issues">
+      <thead>
+      <tr>
+        <th><%= l(:field_spent_on) %></th>
+        <th><%= l(:field_name) %></th>
+        <th><%= l(:field_description) %></th>
+      </tr>
+      </thead>
+      <tbody>
+        <% @holidays.each do |holiday| %>
+          <tr class="<%= cycle("odd", "even") %> issue">
+            <td><%= link_to h("#{holiday.date.strftime(l('label_holiday_date'))}"),  {:controller => 'setting_holidays', :action => 'edit', :day => holiday.date} %></td>
+            <td><%=h holiday.title %></td>
+            <td><%=h holiday.description %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>
+<% end %>
+
+<% content_for :sidebar do %>
+  <%= render :partial => 'setting_holidays/sidebar' %>
+<% end %>

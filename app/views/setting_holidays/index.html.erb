@@ -1,0 +1,33 @@
+<h2><%= @query.new_record? ? l(:label_setting_holiday) : h(@query.name) %></h2>
+
+<%= error_messages_for 'query' %>
+<% if @query.valid? %>
+<p style="float:right;">
+  <%= link_to_prev_year(@year) %> | <%= link_to_next_year(@year) %>
+</p>
+<h2><%= @year %></h2>
+</br>
+
+<table class="cal_all">
+<% month = 1
+while month <= 12 %>
+  <tr>
+  <% count = 1
+  while count <= 3 %>
+    <td valign="top">
+    <h2><%= month_name( month ) %></h2>
+    <%= render :partial => 'setting_holidays/calendar', :locals => {:project => @project, :calendar => @calendars[month], :year => @year} %>
+    </td>
+  <% count = count + 1
+  month = month + 1
+  end %>
+  </tr>
+<% end %>
+</table>
+<% end %>
+
+<% content_for :sidebar do %>
+  <%= render :partial => 'setting_holidays/sidebar' %>
+<% end %>
+
+<% html_title(l(:label_setting_holiday)) -%>

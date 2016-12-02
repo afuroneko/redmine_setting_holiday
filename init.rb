@@ -3,6 +3,7 @@ Redmine::Plugin.register :redmine_setting_holiday do
   author 'afuroneko'
   description 'This is a plugin for Redmine Setting holidays'
   version '0.0.1'
+  url 'https://github.com/afuroneko/redmine_setting_holiday'
 
   project_module :setting_holiday do
     permission :view_setting_holidays, :setting_holidays => [:index, :show]
